@@ -83,7 +83,7 @@ function renderBlocks(moveType = "") {
                 renderBlocks();
             }, 0);
             return true;
-        }
+        } 
     });
 
     movingItem.left = left;
@@ -99,7 +99,7 @@ function seizeBlock() {
     });
 
     checkLines();
-    generateNewBlock(); 
+    generateNewBlock();
 }
 
 
@@ -157,11 +157,11 @@ function checkBlockMovement(moveType, amount = 1) {
         const y = block[1] + top + amount;
 
         if (y >= GAME_ROWS || (playground.childNodes[y] && !checkEmpty(playground.childNodes[y].childNodes[0].childNodes[x]))) {
-            return false; 
+            return false;
         }
     }
 
-    return true; 
+    return true;
 }
 
 
@@ -170,7 +170,7 @@ function moveBlock(moveType, amount) {
         tempMovingItem[moveType] += amount;
         renderBlocks(moveType);
     } else if (moveType === 'top') {
-        seizeBlock(); 
+        seizeBlock();
     }
 }
 
@@ -234,13 +234,15 @@ restartButton.addEventListener("click", () => {
 init();
 
 function startGame() {
-    const speedIncreaseInterval = 30000; 
+    const speedIncreaseInterval = 30000;
 
     setInterval(() => {
-        duration = Math.max(100, duration - 50); 
+        duration = Math.max(100, duration - 50);
         clearInterval(downInterval);
         downInterval = setInterval(() => {
             moveBlock('top', 1);
         }, duration);
     }, speedIncreaseInterval);
 }
+
+
